@@ -16,7 +16,7 @@ oo2.addEventListener("click", function() {
     oo.style.color = "#" + col;
 });
 
-oo3 = document.getElementById("oo")[3];
+oo3 = documengitt.getElementById("oo")[3];
 oo3.addEventListener("click", function() {
     const col = MAth.random().toString(16).slice(2, 8);
     oo.style.color = "#" + col;
