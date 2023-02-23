@@ -1,15 +1,19 @@
 window.onload = function () {
     const sub = document.querySelector('#sub');
-    const aff = document.querySelector('#aff');
+    const affichage = document.querySelector('#affichage');
 
     sub.addEventListener('click', function () {
-        const nom = document.getElementById("name").value;
-        const comment = document.getElementById("comment").value;
+         nom = document.getElementById("name").value;
+         comment = document.getElementById("comment").value;
+        if(nom == "" || comment == ""){
+            alert("Veuillez remplir tous les champs");
+            return;
+        }
         const date = new Date();
         const dateNow = date.toLocaleDateString();
         const timeNow = date.toLocaleTimeString();
         const newComment = document.createElement('div');
-        aff.appendChild(newComment);
+        affichage.appendChild(newComment);
         // newComment.id= (newComment.previousSibling==null)? 1+"": (newComment.previousSibling.id+1) + "";
         newComment.innerHTML = `
         <div class="card m-2" style="width: 18rem;">
@@ -22,13 +26,17 @@ window.onload = function () {
         </div>
         `;
 
-        aff.appendChild(newComment);
+        affichage.appendChild(newComment);
+
+        document.getElementById("name").value = "";
+        document.getElementById("comment").value = "";
+
         xx = document.querySelectorAll(".xx");
         xx.forEach(x => {
             if(x != null){
                 x.addEventListener("click", function(){
                     const ele = x.parentNode;
-                    console.log(ele.innerHTML);
+                    console.log(ele);
                     ele.remove();
                 });
             }
