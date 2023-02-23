@@ -5,13 +5,12 @@ window.onload = function () {
     sub.addEventListener('click', function () {
         const nom = document.getElementById("name").value;
         const comment = document.getElementById("comment").value;
-        // var i = 1;
         const date = new Date();
         const dateNow = date.toLocaleDateString();
         const timeNow = date.toLocaleTimeString();
         const newComment = document.createElement('div');
         aff.appendChild(newComment);
-        newComment.id= (newComment.previousSibling==null)? 1+"": (newComment.previousSibling.id+1) + "";
+        // newComment.id= (newComment.previousSibling==null)? 1+"": (newComment.previousSibling.id+1) + "";
         newComment.innerHTML = `
         <div class="card m-2" style="width: 18rem;">
             <button type="button" class="btn-close xx" aria-label="Close"}></button>
@@ -22,18 +21,20 @@ window.onload = function () {
             </div>
         </div>
         `;
-        
+
         aff.appendChild(newComment);
+        xx = document.querySelectorAll(".xx");
+        xx.forEach(x => {
+            if(x != null){
+                x.addEventListener("click", function(){
+                    const ele = x.parentNode;
+                    console.log(ele.innerHTML);
+                    ele.remove();
+                });
+            }
+        });
         
     });
-
+ 
 
 }
-
-// let xx= document.querySelectorAll(".xx");
-// if(xx != null){
-//     xx.addEventListener("click", function(){
-//         const ele = xx.parentNode;
-//         ele.remove();
-//     });
-// }
